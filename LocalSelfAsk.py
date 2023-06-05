@@ -50,7 +50,7 @@ modelConfig = dict(
         verbose=False
 )
 
-model = Llama(model_path="Models/gpt4-x-vicuna-13B.ggml.q5_1.bin", **modelConfig)
+model = Llama(model_path="", **modelConfig) #Enter the path to your ggml model here
 
 def getMainLLMResponse(prompt, stop):
     modelOutputConfig = dict(
@@ -110,7 +110,7 @@ def search(query):
 def returnRawSearchResult(query):
     params = {'q': query, 'format': 'json'}
 
-    response = requests.get("http://localhost:2000/search", params=params)
+    response = requests.get("http://localhost:2000/search", params=params) # Change the address to whatever your running Searx instance is
     return response.text
 
 # util
@@ -149,4 +149,4 @@ def run(question):
     return reformat(activePrompt) + response
 
 
-print(run("What is the main battle tank of the NSO faction in the game Planetside 2 called?"))
+print(run("")) # Enter your question here
